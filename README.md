@@ -34,9 +34,9 @@ src/
     ├── exception/      # Exceções customizadas
     ├── util/           # Utilitários
     ├── Main.java       # Ponto de entrada da aplicação
-    └── resources/
+    └── main.resources/
         ├── formulario.txt       # Arquivo com perguntas do cadastro
-        └── petsCadastrados/     # Pasta para armazenar os pets cadastrados
+        └── main.resources.petsCadastrados/     # Pasta para armazenar os pets cadastrados
 ```
 
 ## Status do Projeto

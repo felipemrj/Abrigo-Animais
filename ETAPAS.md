@@ -112,7 +112,7 @@ Agora, ao salvar o PET em um objeto, você deverá salvar as respostas em um arq
 ### _Regras ⚠️_
 
 1. O nome do arquivo deverá seguir o formato: ano, mês, dia,T, hora, minuto - NOME+SOBRENOME em maiúsculo.
-2. O arquivo deverá ser salvo na pasta `petsCadastrados` na raiz do projeto.
+2. O arquivo deverá ser salvo na pasta `main.resources.petsCadastrados` na raiz do projeto.
 3. O conteúdo do arquivo deverá conter TODAS AS RESPOSTAS POR LINHA, ou seja, cada resposta deverá estar em uma linha diferente.
 4. O campo endereço deverá ser salvo todo na mesma linha.
 5. O arquivo somente conterá **RESPOSTAS**, PERGUNTAS NÃO!
