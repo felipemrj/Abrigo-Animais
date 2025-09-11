@@ -43,7 +43,7 @@ src/
 
 O projeto se encontra em desenvolvimento e foi dividido nas seguintes etapas:
 
-- [ ] Etapa 1
+- [x] Etapa 1
 - [ ] Etapa 2
 - [ ] Etapa 3
 - [ ] Etapa 4
