@@ -17,8 +17,7 @@ public class FormRepository {
                     4 - Qual endereço e bairro que ele foi encontrado?
                     5 - Qual a idade aproximada do pet?
                     6 - Qual o peso aproximado do pet?
-                    7 - Qual a raça do pet?
-                    """);
+                    7 - Qual a raça do pet?""");
             bw.newLine();
             bw.flush();
         } catch (IOException e) {
@@ -26,13 +25,18 @@ public class FormRepository {
         }
     }
 
-    public static void readStringInFile() {
+    public static void readStringInFile(int lineToPrint) {
         File file = new File(FILE_PATH, FILE_NAME);
         try (FileReader fr = new FileReader(file);
              BufferedReader br = new BufferedReader(fr)) {
             String line;
+            int counter = 0;
             while ((line = br.readLine()) != null) {
-                System.out.println(line);
+                counter++;
+                if (counter == lineToPrint) {
+                    System.out.println(line);
+                    break;
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

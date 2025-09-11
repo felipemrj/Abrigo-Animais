@@ -25,8 +25,6 @@ Nesta etapa foi criado um menu inicial para a aplicação, garantindo que o usu�
 
 Para isso, foi criada a classe `UserInterface`, responsável pelos métodos `Menu` e `validateOption`.
 
-Nossa classe possui dois métodos principais: `Menu()` e `validateOption()`.
-
 - **`Menu()`**  
   É responsável por apresentar continuamente o menu principal ao usuário até que uma opção válida seja selecionada. O método exibe as opções disponíveis utilizando um laço `while`, que só termina quando o valor informado estiver entre 1 e 6. O valor inicial da opção é definido como 0, garantindo que o menu seja exibido ao menos uma vez e repetido caso a entrada seja inválida.
 
