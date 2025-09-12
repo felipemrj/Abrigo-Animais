@@ -1,8 +1,8 @@
 package main.model;
 
 public enum PetGender {
-    MALE(1, "Macho"),
-    FEMALE(2, "Fêmea");
+    MALE(1, "Masculino"),
+    FEMALE(2, "Feminino");
 
     private final int ID;
     private final String GENDER_NAME;

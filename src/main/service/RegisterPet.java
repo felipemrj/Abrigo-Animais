@@ -1,73 +1,65 @@
 package main.service;
 
-import main.exception.InvalidNameException;
-import main.model.Pet;
-import main.model.PetAdress;
-import main.model.PetGender;
-import main.model.PetType;
+import main.model.*;
 import main.repository.FormRepository;
 import main.util.UserInputValidation;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class RegisterPet {
     Scanner read = new Scanner(System.in);
 
     public Pet registerPet() {
-        return new Pet(registerName(), registerGender(), registerType(), registerAdress(), registerPetAge(), registerPetWeight(), registerPetBreed());
+        return new Pet(registerName(), registerType(), registerGender(), registerAdress(), registerPetAge(), registerPetWeight(), registerPetBreed());
     }
 
-    public String registerName() {
+    public PetName registerName() {
         FormRepository.readStringInFile(1);
-        return UserInputValidation.validateName();
+        String firstName = UserInputValidation.validateName("nome");
+        String lastName = UserInputValidation.validateName("sobrenome");
+        return new PetName(firstName, lastName);
+        //adicionar não informado
     }
+
 
     public PetType registerType() {
         FormRepository.readStringInFile(2);
-        String type = read.nextLine();
-        if (type.equals(PetType.DOG.getTYPE_NAME())) {
-            return PetType.DOG;
-        }
-        return PetType.CAT;
+        return UserInputValidation.validateType();
     }
 
     public PetGender registerGender() {
         FormRepository.readStringInFile(3);
-        String gender = read.nextLine();
-        if (gender.equals(PetGender.MALE.getGENDER_NAME())) {
-            return PetGender.MALE;
-        }
-        return PetGender.FEMALE;
+        return UserInputValidation.validateGender();
     }
 
     public PetAdress registerAdress() {
         FormRepository.readStringInFile(4);
         System.out.println("a. Rua: ");
-        String street = read.nextLine();
+        String street = UserInputValidation.validateAdressStreet();
         System.out.println("b. Número da casa: ");
-        int number = read.nextInt();
-        read.nextLine();
+        String number = UserInputValidation.validateAdressNumber();
         System.out.println("c. Cidade: ");
-        String city = read.nextLine();
-
+        String city = UserInputValidation.validateAdressCity();
         return new PetAdress(street, number, city);
+        //adicionar não informado
     }
 
     public int registerPetAge() {
         FormRepository.readStringInFile(5);
-        return read.nextInt();
+        return UserInputValidation.validateAge();
+        //adicionar não informado
     }
 
     public double registerPetWeight() {
         FormRepository.readStringInFile(6);
-        return read.nextDouble();
+        return UserInputValidation.validateWeight();
+        //adicionar não informado
     }
 
     public String registerPetBreed() {
-        String eatGarbage = read.nextLine();
         FormRepository.readStringInFile(7);
-        return read.nextLine();
+        return UserInputValidation.validateBreed();
+        //adicionar não informado
     }
 
 }

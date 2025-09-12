@@ -1,7 +1,7 @@
 package main.model;
 
 public class Pet {
-    private String petName;
+    private PetName petName;
     private PetGender petGender;
     private PetType petType;
     private PetAdress petAdress;
@@ -9,14 +9,10 @@ public class Pet {
     private double petWeight;
     private String petBreed;
 
-    public Pet() {
-
-    }
-
-    public Pet(String petName, PetGender petGender, PetType petType, PetAdress petAdress, int petAge, double petWeight, String petBreed) {
+    public Pet(PetName petName, PetType petType, PetGender petGender, PetAdress petAdress, int petAge, double petWeight, String petBreed) {
         this.petName = petName;
-        this.petGender = petGender;
         this.petType = petType;
+        this.petGender = petGender;
         this.petAdress = petAdress;
         this.petAge = petAge;
         this.petWeight = petWeight;
@@ -27,8 +23,8 @@ public class Pet {
     public String toString() {
         return "Pet{" +
                 "petName='" + petName + '\'' +
-                ", petGender=" + petGender +
                 ", petType=" + petType +
+                ", petGender=" + petGender +
                 ", petAdress=" + petAdress +
                 ", petAge=" + petAge +
                 ", petWeight=" + petWeight +
