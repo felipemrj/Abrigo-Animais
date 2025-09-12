@@ -2,10 +2,10 @@ package main.model;
 
 public class PetAdress {
     private String adressStreet;
-    private String adressNumber;
+    private int adressNumber;
     private String adressCity;
 
-    public PetAdress(String adressStreet, String adressNumber, String adressCity) {
+    public PetAdress(String adressStreet, int adressNumber, String adressCity) {
         this.adressStreet = adressStreet;
         this.adressNumber = adressNumber;
         this.adressCity = adressCity;
@@ -28,11 +28,11 @@ public class PetAdress {
         this.adressStreet = adressStreet;
     }
 
-    public String getAdressNumber() {
+    public int getAdressNumber() {
         return adressNumber;
     }
 
-    public void setAdressNumber(String adressNumber) {
+    public void setAdressNumber(int adressNumber) {
         this.adressNumber = adressNumber;
     }
 

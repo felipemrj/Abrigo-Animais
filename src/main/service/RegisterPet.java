@@ -1,11 +1,14 @@
 package main.service;
 
+import main.exception.InvalidNameException;
 import main.model.Pet;
 import main.model.PetAdress;
 import main.model.PetGender;
 import main.model.PetType;
 import main.repository.FormRepository;
+import main.util.UserInputValidation;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class RegisterPet {
@@ -17,7 +20,7 @@ public class RegisterPet {
 
     public String registerName() {
         FormRepository.readStringInFile(1);
-        return read.nextLine();
+        return UserInputValidation.validateName();
     }
 
     public PetType registerType() {
@@ -40,14 +43,15 @@ public class RegisterPet {
 
     public PetAdress registerAdress() {
         FormRepository.readStringInFile(4);
-        System.out.println("I. Número da casa: ");
-        String number = read.nextLine();
-        System.out.println("II. Cidade: ");
+        System.out.println("a. Rua: ");
+        String street = read.nextLine();
+        System.out.println("b. Número da casa: ");
+        int number = read.nextInt();
+        read.nextLine();
+        System.out.println("c. Cidade: ");
         String city = read.nextLine();
-        System.out.println("III. Rua: ");
-        String adress = read.nextLine();
 
-        return new PetAdress(number, city, adress);
+        return new PetAdress(street, number, city);
     }
 
     public int registerPetAge() {
