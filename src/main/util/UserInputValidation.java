@@ -119,15 +119,20 @@ public class UserInputValidation {
 
     public static String validateAge() {
         String age;
-        System.out.println("Digite a idade do pet (apenas números inteiros): ");
+        System.out.println("Digite a idade do pet (0,01 até 0,12 para meses, números inteiros para anos): ");
         while (true) {
             try {
                 age = read.nextLine();
                 if (age.isEmpty()) {
                     return NOT_INFORMED;
                 }
-                if (!age.matches("[0-9]+")) {
-                    throw new InvalidInputException("Idade inválida, digite apenas números inteiros: ");
+                if (!age.matches("^([1-9][0-9]*|0[.,](0[1-9]|1[0-2]))$")) {
+                    throw new InvalidInputException("Idade inválida, digite uma idade válida (0,01 até 0,12 para meses, números inteiros para anos): ");
+                }
+                age = age.replace(',', '.');
+                double ageCheck = Double.parseDouble(age);
+                if (ageCheck > 20) {
+                    throw new InvalidInputException("Idade inválida, idade máxima é 20 anos");
                 }
                 return age;
             } catch (InvalidInputException e) {
@@ -145,10 +150,14 @@ public class UserInputValidation {
                 if (weight.isEmpty()) {
                     return NOT_INFORMED;
                 }
-                if (!weight.matches("[0-9]+([.,][0-9]+)?")) {
+                if (!weight.matches("^([1-9][0-9]*|0)([.,][0-9]+)?$")) {
                     throw new InvalidInputException("Peso inválido, digite apenas números, usando ponto ou vírgula para decimais: ");
                 }
                 weight = weight.replace(',', '.');
+                double weightCheck = Double.parseDouble(weight);
+                if (weightCheck > 60 || weightCheck < 0.5) {
+                    throw new InvalidInputException("Peso inválido, peso máximo 60KG e peso mínimo 0,5KG, digite um peso válido: ");
+                }
                 return weight;
             } catch (InvalidInputException e) {
                 System.out.println(e.getMessage());
