@@ -18,7 +18,6 @@ public class RegisterPet {
         String firstName = UserInputValidation.validateName("nome");
         String lastName = UserInputValidation.validateName("sobrenome");
         return new PetName(firstName, lastName);
-        //adicionar não informado
     }
 
 
@@ -41,19 +40,16 @@ public class RegisterPet {
         System.out.println("c. Cidade: ");
         String city = UserInputValidation.validateAdressCity();
         return new PetAdress(street, number, city);
-        //adicionar não informado
     }
 
-    public int registerPetAge() {
+    public String registerPetAge() {
         FormRepository.readStringInFile(5);
         return UserInputValidation.validateAge();
-        //adicionar não informado
     }
 
-    public double registerPetWeight() {
+    public String registerPetWeight() {
         FormRepository.readStringInFile(6);
         return UserInputValidation.validateWeight();
-        //adicionar não informado
     }
 
     public String registerPetBreed() {

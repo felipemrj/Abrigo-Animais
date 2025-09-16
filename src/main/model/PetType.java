@@ -19,4 +19,12 @@ public enum PetType {
     public String getTYPE_NAME() {
         return TYPE_NAME;
     }
+
+    @Override
+    public String toString() {
+        return "PetType{" +
+                "ID=" + ID +
+                ", TYPE_NAME='" + TYPE_NAME + '\'' +
+                '}';
+    }
 }

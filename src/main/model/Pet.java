@@ -5,11 +5,11 @@ public class Pet {
     private PetGender petGender;
     private PetType petType;
     private PetAdress petAdress;
-    private int petAge;
-    private double petWeight;
+    private String petAge;
+    private String petWeight;
     private String petBreed;
 
-    public Pet(PetName petName, PetType petType, PetGender petGender, PetAdress petAdress, int petAge, double petWeight, String petBreed) {
+    public Pet(PetName petName, PetType petType, PetGender petGender, PetAdress petAdress, String petAge, String petWeight, String petBreed) {
         this.petName = petName;
         this.petType = petType;
         this.petGender = petGender;
@@ -22,12 +22,12 @@ public class Pet {
     @Override
     public String toString() {
         return "Pet{" +
-                "petName='" + petName + '\'' +
-                ", petType=" + petType +
+                "petName=" + petName +
                 ", petGender=" + petGender +
+                ", petType=" + petType +
                 ", petAdress=" + petAdress +
-                ", petAge=" + petAge +
-                ", petWeight=" + petWeight +
+                ", petAge='" + petAge + '\'' +
+                ", petWeight='" + petWeight + '\'' +
                 ", petBreed='" + petBreed + '\'' +
                 '}';
     }
