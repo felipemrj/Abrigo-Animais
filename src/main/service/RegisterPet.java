@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class RegisterPet {
     Scanner read = new Scanner(System.in);
 
-    public Pet registerPet() {
+    public Pet createPet() {
         return new Pet(registerName(), registerType(), registerGender(), registerAdress(), registerPetAge(), registerPetWeight(), registerPetBreed());
     }
 
@@ -17,7 +17,7 @@ public class RegisterPet {
         FormRepository.readStringInFile(1);
         String firstName = UserInputValidation.validateName("nome");
         String lastName = UserInputValidation.validateName("sobrenome");
-        return new PetName(firstName, lastName);
+        return new PetName(firstName + " " + lastName);
     }
 
 
@@ -55,7 +55,6 @@ public class RegisterPet {
     public String registerPetBreed() {
         FormRepository.readStringInFile(7);
         return UserInputValidation.validateBreed();
-        //adicionar não informado
     }
 
 }

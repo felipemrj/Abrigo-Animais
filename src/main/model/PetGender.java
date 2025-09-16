@@ -22,9 +22,6 @@ public enum PetGender {
 
     @Override
     public String toString() {
-        return "PetGender{" +
-                "ID=" + ID +
-                ", GENDER_NAME='" + GENDER_NAME + '\'' +
-                '}';
+        return GENDER_NAME;
     }
 }

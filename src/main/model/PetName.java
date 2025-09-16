@@ -1,23 +1,14 @@
 package main.model;
 
 public class PetName {
-    private String firstName;
-    private String lastName;
+    private String fullName;
 
-    public PetName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public PetName(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public PetName(String fullName) {
+        this.fullName = fullName;
     }
 
     @Override
     public String toString() {
-        return "PetName{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+        return fullName;
     }
 }

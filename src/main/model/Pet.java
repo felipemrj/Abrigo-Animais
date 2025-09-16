@@ -2,8 +2,8 @@ package main.model;
 
 public class Pet {
     private PetName petName;
-    private PetGender petGender;
     private PetType petType;
+    private PetGender petGender;
     private PetAdress petAdress;
     private String petAge;
     private String petWeight;
@@ -21,14 +21,31 @@ public class Pet {
 
     @Override
     public String toString() {
-        return "Pet{" +
-                "petName=" + petName +
-                ", petGender=" + petGender +
-                ", petType=" + petType +
-                ", petAdress=" + petAdress +
-                ", petAge='" + petAge + '\'' +
-                ", petWeight='" + petWeight + '\'' +
-                ", petBreed='" + petBreed + '\'' +
-                '}';
+        return "1 - " + petName +
+                "\n2 - " + petType +
+                "\n3 - " + petGender +
+                "\n4 - " + petAdress +
+                "\n5 - " + formatAge() +
+                "\n6 - " + petWeight + "kg" +
+                "\n7 - " + petBreed;
     }
+
+    public String formatAge() {
+        try {
+            double age = Double.parseDouble(petAge.replace(",", ".").trim());
+            if (age < 1) {
+                int months = (int) Math.round(age * 100);
+                return months + (months == 1 ? " mês" : " meses");
+            } else {
+                int years = (int) age;
+                return years + (years == 1 ? " ano" : " anos");
+            }
+        } catch (NumberFormatException e) {
+            return petAge;
+        }
+    }
+    public PetName getPetName() {
+        return petName;
+    }
+
 }

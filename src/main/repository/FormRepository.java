@@ -3,11 +3,11 @@ package main.repository;
 import java.io.*;
 
 public class FormRepository {
-    private static final String FILE_PATH = "C:\\Users\\felip\\IdeaProjects\\desafioCadastro\\src\\main\\resources\\";
-    private static final String FILE_NAME = "formulario.txt";
+    private static final String FORM_FILE_PATH = "C:\\Users\\felip\\IdeaProjects\\desafioCadastro\\src\\main\\resources\\";
+    private static final String FORM_FILE_NAME = "formulario.txt";
 
     public static void createStandardForm() {
-        File file = new File(FILE_PATH, FILE_NAME);
+        File file = new File(FORM_FILE_PATH, FORM_FILE_NAME);
         try (FileWriter fw = new FileWriter(file);
              BufferedWriter bw = new BufferedWriter(fw)) {
             bw.write("""
@@ -26,7 +26,7 @@ public class FormRepository {
     }
 
     public static void readStringInFile(int lineToPrint) {
-        File file = new File(FILE_PATH, FILE_NAME);
+        File file = new File(FORM_FILE_PATH, FORM_FILE_NAME);
         try (FileReader fr = new FileReader(file);
              BufferedReader br = new BufferedReader(fr)) {
             String line;

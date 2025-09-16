@@ -13,11 +13,7 @@ public class PetAdress {
 
     @Override
     public String toString() {
-        return "PetAdress{" +
-                "adressStreet='" + adressStreet + '\'' +
-                ", adressNumber='" + adressNumber + '\'' +
-                ", adressCity='" + adressCity + '\'' +
-                '}';
+        return adressStreet +", "+ adressNumber + ", " + adressCity;
     }
 
     public String getAdressStreet() {

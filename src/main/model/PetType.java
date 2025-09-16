@@ -22,9 +22,6 @@ public enum PetType {
 
     @Override
     public String toString() {
-        return "PetType{" +
-                "ID=" + ID +
-                ", TYPE_NAME='" + TYPE_NAME + '\'' +
-                '}';
+        return TYPE_NAME;
     }
 }
