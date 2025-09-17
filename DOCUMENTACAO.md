@@ -77,4 +77,50 @@ A cada pergunta, uma linha do arquivo `formulario.txt` é exibida e a resposta d
 A separação das validações em uma classe utilitária e o uso de classes para modelar cada parte dos dados garantem um código mais limpo, reutilizável e fácil de manter. O uso de enums para tipo e sexo do animal reforça a restrição dos valores possíveis, evitando erros de digitação e facilitando futuras expansões.
 O preenchimento padrão com a constante `NÃO INFORMADO` garante consistência nos dados, mesmo em casos de entradas omitidas pelo usuário.
 
+## Etapa 4
 
+A meta dessa etapa foi implementar o armazenamento das informações do pet cadastrado em um arquivo `.txt` personalizado, conforme regras específicas de formatação, localização e conteúdo, garantindo que os dados sejam persistidos corretamente e de forma organizada.
+
+Para atender aos requisitos da etapa, foi criada a classe **`SaveDataRepository`**, responsável por salvar os dados do pet em arquivos `.txt`, seguindo todas as regras de negócio exigidas.
+
+#### Atributos
+
+- **`PET_FILE_PATH`**  
+  Constante que define o caminho onde os arquivos de pets cadastrados devem ser salvos:
+  ```
+  main/resources/petsCadastrados
+  ```
+
+#### Principais métodos
+
+- **`createPetFile(Pet pet)`**  
+  Método responsável por receber o objeto `Pet` já preenchido e persistir suas informações em um arquivo `.txt`. O método realiza as seguintes operações:
+  - Obtém a data e hora atual e formata de acordo com o padrão exigido (`yyyyMMdd'T'HHmm`).
+  - Formata o nome e sobrenome do pet para maiúsculo, removendo espaços, para compor o nome do arquivo.
+  - Monta o nome final do arquivo conforme o padrão:
+    ```
+    20231101T1234-FLORZINHADASILVA.TXT
+    ```
+  - Garante que o diretório `main/resources/petsCadastrados` exista, criando-o caso não exista.
+  - Cria e abre o arquivo para escrita, persistindo cada resposta do cadastro em uma linha separada.
+    - O campo endereço é salvo todo na mesma linha, conforme especificação.
+    - Apenas as respostas são gravadas, uma por linha, na ordem do cadastro.
+  - Utiliza `BufferedWriter` para garantir eficiência na escrita e fechamento automático dos recursos, evitando vazamento de memória.
+
+
+- **Formato do nome do arquivo**  
+  O arquivo é nomeado com o padrão: ano, mês, dia, 'T', hora, minuto, hífen, nome e sobrenome do pet em maiúsculo, sem espaços.
+- **Local de armazenamento**  
+  Todos os arquivos são salvos na pasta `main/resources/petsCadastrados` na raiz do projeto.
+- **Conteúdo do arquivo**  
+  Apenas as respostas do cadastro são armazenadas. O campo endereço é salvo em uma linha única. Nenhuma pergunta é incluída no arquivo.
+- **Exemplo de arquivo gerado**
+  ```
+  1 - Florzinha da Silva
+  2 - Gato
+  3 - Femea
+  4 - Rua 2, 456, Seilandia
+  5 - 6 anos
+  6 - 5kg
+  7 - Siames
+  ```
