@@ -1,17 +1,20 @@
 package main;
 
-import main.cli.UserInterface;
+import main.service.MainMenu;
 import main.model.Pet;
 import main.repository.FormRepository;
 import main.repository.SaveDataRepository;
 import main.service.RegisterPet;
+import main.service.SearchPet;
 
 public class Main {
     public static void main(String[] args) {
         FormRepository.createStandardForm();
-        RegisterPet rp = new RegisterPet();
 
-        UserInterface ui = new UserInterface();
+        RegisterPet rp = new RegisterPet();
+        SearchPet sp = new SearchPet();
+
+        MainMenu ui = new MainMenu();
         int selectedOption = ui.Menu();
 
         switch (selectedOption) {
@@ -29,7 +32,11 @@ public class Main {
                 System.out.println("Under development");
                 break;
             case 5:
-                System.out.println("Under development");
+                if (sp.searchPetMenu() == 1) {
+                    sp.simplePetSearch();
+                    break;
+                }
+                sp.detailedPetSearch();
                 break;
             case 6:
                 System.out.println("Under development");

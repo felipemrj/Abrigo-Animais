@@ -1,8 +1,8 @@
-package main.cli;
+package main.service;
 
 import java.util.Scanner;
 
-public class UserInterface {
+public class MainMenu {
     Scanner read = new Scanner(System.in);
     public int Menu(){
         int option = 0;
