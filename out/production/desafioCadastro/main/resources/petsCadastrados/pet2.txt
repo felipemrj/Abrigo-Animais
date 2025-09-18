@@ -1,0 +1,7 @@
+1 - Ana Clara
+2 - Cachorro
+3 - Feminino
+4 - Av. Brasil, 2A, São Paulo
+5 - 2 anos
+6 - 2,0kg
+7 - Persa

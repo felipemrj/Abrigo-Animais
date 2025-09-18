@@ -1,0 +1,7 @@
+1 - Isabela Duarte
+2 - Cachorro
+3 - Feminino
+4 - Rua Augusta, 14A, Curitiba
+5 - 14 anos
+6 - 14,0kg
+7 - Poodle

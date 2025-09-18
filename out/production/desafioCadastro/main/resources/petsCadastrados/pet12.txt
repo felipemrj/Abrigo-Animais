@@ -1,0 +1,7 @@
+1 - Camila Ribeiro
+2 - Cachorro
+3 - Feminino
+4 - Av. Brasil, 12A, São Paulo
+5 - 12 anos
+6 - 12,0kg
+7 - Persa

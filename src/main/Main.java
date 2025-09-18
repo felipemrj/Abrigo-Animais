@@ -19,8 +19,7 @@ public class Main {
 
         switch (selectedOption) {
             case 1:
-                Pet pet = rp.createPet();
-                SaveDataRepository.createPetFile(pet);
+                rp.registerPet();
                 break;
             case 2:
                 System.out.println("Under development");
@@ -32,11 +31,7 @@ public class Main {
                 System.out.println("Under development");
                 break;
             case 5:
-                if (sp.searchPetMenu() == 1) {
-                    sp.simplePetSearch();
-                    break;
-                }
-                sp.detailedPetSearch();
+                sp.searchPet();
                 break;
             case 6:
                 System.out.println("Under development");

@@ -2,12 +2,16 @@ package main.service;
 
 import main.model.*;
 import main.repository.FormRepository;
+import main.repository.SaveDataRepository;
 import main.util.UserInputValidation;
 
-import java.util.Scanner;
-
 public class RegisterPet {
-    Scanner read = new Scanner(System.in);
+
+    public void registerPet() {
+        RegisterPet rp = new RegisterPet();
+        Pet pet = rp.createPet();
+        SaveDataRepository.createPetFile(pet);
+    }
 
     public Pet createPet() {
         return new Pet(registerName(), registerType(), registerGender(), registerAdress(), registerPetAge(), registerPetWeight(), registerPetBreed());
