@@ -7,176 +7,27 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class SearchPet {
-    private static final String FORM_FILE_PATH = "C:\\Users\\felip\\IdeaProjects\\desafioCadastro\\src\\main\\resources\\";
-    private static final String FORM_FILE_NAME = "formulario.txt";
-
-    Scanner read = new Scanner(System.in);
+    private static final String FORM_FILE_PATH = "C:\\Users\\felip\\IdeaProjects\\desafioCadastro\\src\\main\\resources\\petsCadastrados";
 
     public void searchPet() {
         int option = searchMenu();
-        int searchFilter = 0;
-        int searchFilter2 = 0;
+
         if (option == 1) {
-            while (searchFilter < 1 || searchFilter > 7) {
-                System.out.println("Escolha o critério para a busca: ");
-                System.out.println("""
-                        1. Nome ou sobrenome
-                        2. Tipo
-                        3. Sexo
-                        4. Endereço
-                        5. Idade
-                        6. Peso
-                        7. Raça
-                        """);
-                searchFilter = read.nextInt();
-                read.nextLine();
-            }
-            String searchValue = "";
-            switch (searchFilter) {
-                case 1:
-                    searchValue = UserInputValidation.validateName("nome ou sobrenome");
-                    break;
-                case 2:
-                    searchValue = String.valueOf(UserInputValidation.validateType());
-                    break;
-                case 3:
-                    searchValue = String.valueOf(UserInputValidation.validateGender());
-                    break;
-                case 4:
-                    System.out.println("Selecione uma opção: ");
-                    System.out.println("""
-                            1. Rua
-                            2. Número da casa
-                            3. Cidade""");
-                    int adressOption = read.nextInt();
-                    read.nextLine();
-                    if (adressOption == 1) {
-                        searchValue = UserInputValidation.validateAdressStreet();
-                    } else if (adressOption == 2) {
-                        searchValue = UserInputValidation.validateAdressNumber();
-                    } else {
-                        searchValue = UserInputValidation.validateAdressCity();
-                    }
-                    break;
-                case 5:
-                    searchValue = UserInputValidation.validateAge();
-                    break;
-                case 6:
-                    searchValue = UserInputValidation.validateWeight();
-                    break;
-                case 7:
-                    searchValue = UserInputValidation.validateBreed();
-                    break;
-            }
+            int searchFilter = searchFilterMenu();
+            String searchValue = searchValueValidation(searchFilter);
+
             ArrayList<File> simpleSearchResults = simplePetSearch(searchFilter, searchValue);
             formatSearchResult(simpleSearchResults);
         }
         if (option == 2) {
-            while (searchFilter < 1 || searchFilter > 7) {
-                System.out.println("Escolha o critério para a busca: ");
-                System.out.println("""
-                        1. Nome ou sobrenome
-                        2. Tipo
-                        3. Sexo
-                        4. Endereço
-                        5. Idade
-                        6. Peso
-                        7. Raça
-                        """);
-                searchFilter = read.nextInt();
-                read.nextLine();
-            }
-            String searchValue = "";
-            switch (searchFilter) {
-                case 1:
-                    searchValue = UserInputValidation.validateName("nome ou sobrenome");
-                    break;
-                case 2:
-                    searchValue = String.valueOf(UserInputValidation.validateType());
-                    break;
-                case 3:
-                    searchValue = String.valueOf(UserInputValidation.validateGender());
-                    break;
-                case 4:
-                    System.out.println("Selecione uma opção: ");
-                    System.out.println("""
-                            1. Rua
-                            2. Número da casa
-                            3. Cidade""");
-                    int adressOption = read.nextInt();
-                    read.nextLine();
-                    if (adressOption == 1) {
-                        searchValue = UserInputValidation.validateAdressStreet();
-                    } else if (adressOption == 2) {
-                        searchValue = UserInputValidation.validateAdressNumber();
-                    } else {
-                        searchValue = UserInputValidation.validateAdressCity();
-                    }
-                    break;
-                case 5:
-                    searchValue = UserInputValidation.validateAge();
-                    break;
-                case 6:
-                    searchValue = UserInputValidation.validateWeight();
-                    break;
-                case 7:
-                    searchValue = UserInputValidation.validateBreed();
-                    break;
-            }
-            while (searchFilter2 < 1 || searchFilter2 > 7) {
-                System.out.println("Escolha o critério para a busca: ");
-                System.out.println("""
-                        1. Nome ou sobrenome
-                        2. Tipo
-                        3. Sexo
-                        4. Endereço
-                        5. Idade
-                        6. Peso
-                        7. Raça
-                        """);
-                searchFilter2 = read.nextInt();
-                read.nextLine();
-            }
-            String searchValue2 = "";
-            switch (searchFilter2) {
-                case 1:
-                    searchValue2 = UserInputValidation.validateName("nome ou sobrenome");
-                    break;
-                case 2:
-                    searchValue2 = String.valueOf(UserInputValidation.validateType());
-                    break;
-                case 3:
-                    searchValue2 = String.valueOf(UserInputValidation.validateGender());
-                    break;
-                case 4:
-                    System.out.println("Selecione uma opção: ");
-                    System.out.println("""
-                            1. Rua
-                            2. Número da casa
-                            3. Cidade""");
-                    int adressOption = read.nextInt();
-                    read.nextLine();
-                    if (adressOption == 1) {
-                        searchValue2 = UserInputValidation.validateAdressStreet();
-                    } else if (adressOption == 2) {
-                        searchValue2 = UserInputValidation.validateAdressNumber();
-                    } else {
-                        searchValue2 = UserInputValidation.validateAdressCity();
-                    }
-                    break;
-                case 5:
-                    searchValue2 = UserInputValidation.validateAge();
-                    break;
-                case 6:
-                    searchValue2 = UserInputValidation.validateWeight();
-                    break;
-                case 7:
-                    searchValue2 = UserInputValidation.validateBreed();
-                    break;
-            }
+            int searchFilter = searchFilterMenu();
+            String searchValue = searchValueValidation(searchFilter);
+
+            int searchFilter2 = searchFilterMenu();
+            String searchValue2 = searchValueValidation(searchFilter2);
+
             ArrayList<File> detailedSearchResults = detailedPetSearch(searchFilter, searchValue, searchFilter2, searchValue2);
             formatSearchResult(detailedSearchResults);
         }
@@ -184,38 +35,95 @@ public class SearchPet {
 
     public int searchMenu() {
         int option = 0;
+
         while (option != 1 && option != 2) {
             System.out.println("""
                     1. Busca simples (1 Critério)
                     2. Busca detalhada (2 Critérios)
                     """);
-            option = validateOption();
+            option = UserInputValidation.validateOption(1, 2);
         }
         return option;
     }
 
-    public int validateOption() {
-        System.out.print("Escolha uma opção (1 ou 2): ");
-        String option = read.nextLine();
-        if (option.isEmpty()) {
-            System.out.println("Entrada em branco, por favor escolha uma opção.");
-            return 0;
+    public int searchFilterMenu() {
+        int searchFilter = 0;
+
+        while (searchFilter < 1 || searchFilter > 7) {
+            System.out.println("Escolha o critério para a busca: ");
+            System.out.println("""
+                    1. Nome ou sobrenome
+                    2. Tipo
+                    3. Sexo
+                    4. Endereço
+                    5. Idade
+                    6. Peso
+                    7. Raça
+                    """);
+            searchFilter = UserInputValidation.validateOption(1, 7);
         }
-        try {
-            int value = Integer.parseInt(option);
-            if (value != 1 && value != 2) {
-                System.out.println("Opção inválida, escolha 1 ou 2.");
-                return 0;
-            }
-            return value;
-        } catch (NumberFormatException e) {
-            System.out.println("Opção inválida, escolha 1 ou 2.");
-            return 0;
+        return searchFilter;
+    }
+
+    public int adressFilterMenu() {
+        int adressOption = 0;
+
+        while (adressOption < 1 || adressOption > 3) {
+            System.out.println("Selecione uma opção: ");
+            System.out.println("""
+                    1. Rua
+                    2. Número da casa
+                    3. Cidade""");
+            adressOption = UserInputValidation.validateOption(1, 3);
         }
+        return adressOption;
+    }
+
+    public String searchValueValidation (int searchFilter) {
+        String searchValue = "";
+
+        switch (searchFilter) {
+            case 1:
+                searchValue = UserInputValidation.validateName("nome ou sobrenome");
+                break;
+            case 2:
+                searchValue = String.valueOf(UserInputValidation.validateType());
+                break;
+            case 3:
+                searchValue = String.valueOf(UserInputValidation.validateGender());
+                break;
+            case 4:
+                int adressOption = adressFilterMenu();
+                searchValue = adressValidation(adressOption);
+                break;
+            case 5:
+                searchValue = UserInputValidation.validateAge();
+                break;
+            case 6:
+                searchValue = UserInputValidation.validateWeight();
+                break;
+            case 7:
+                searchValue = UserInputValidation.validateBreed();
+                break;
+        }
+        return searchValue;
+    }
+
+    public String adressValidation(int adressOption) {
+        String searchValue;
+
+        if (adressOption == 1) {
+            searchValue = UserInputValidation.validateAdressStreet();
+        } else if (adressOption == 2) {
+            searchValue = UserInputValidation.validateAdressNumber();
+        } else {
+            searchValue = UserInputValidation.validateAdressCity();
+        }
+        return searchValue;
     }
 
     public ArrayList<File> createPetList() {
-        File petsFolder = new File("C:\\Users\\felip\\IdeaProjects\\desafioCadastro\\src\\main\\resources\\petsCadastrados");
+        File petsFolder = new File(FORM_FILE_PATH);
 
         File[] files = null;
         if (petsFolder.exists() && petsFolder.isDirectory()) {
@@ -236,6 +144,7 @@ public class SearchPet {
     public ArrayList<File> simplePetSearch(int searchFilter, String searchValue) {
         ArrayList<File> filesMeetingCriteria = new ArrayList<>();
         ArrayList<File> files = createPetList();
+
         for (File file : files) {
             try (FileReader fr = new FileReader(file);
                  BufferedReader br = new BufferedReader(fr)) {
@@ -260,6 +169,7 @@ public class SearchPet {
     public ArrayList<File> detailedPetSearch(int searchFilter1, String searchValue1, int searchFilter2, String searchValue2) {
         ArrayList<File> firstSearch = simplePetSearch(searchFilter1, searchValue1);
         ArrayList<File> detailedSearch = new ArrayList<>();
+
         for (File file : firstSearch) {
             try (FileReader fr = new FileReader(file);
                  BufferedReader br = new BufferedReader(fr)) {
@@ -286,6 +196,7 @@ public class SearchPet {
         int lineNumber = 1;
         String formattedSearch = "";
         String lineNumberString;
+
         for (File file : filesMeetingCriteria) {
             int count = 1;
             lineNumberString = Integer.toString(lineNumber);
@@ -311,8 +222,5 @@ public class SearchPet {
         for (String formattedString : formattedStrings) {
             System.out.println(formattedString);
         }
-
     }
-
-
 }

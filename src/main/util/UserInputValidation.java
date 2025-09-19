@@ -10,6 +10,28 @@ public class UserInputValidation {
     static Scanner read = new Scanner(System.in);
     private static final String NOT_INFORMED = "NÃO INFORMADO";
 
+    public static int validateOption(int minValue, int maxValue) {
+        String min = Integer.toString(minValue);
+        String max = Integer.toString(maxValue);
+        System.out.print("Escolha uma opção (de " + min + " a " + max + "): ");
+        String option = read.nextLine();
+        if (option.isEmpty()) {
+            System.out.println("Entrada em branco, por favor escolha uma opção.");
+            return 0;
+        }
+        try {
+            int value = Integer.parseInt(option);
+            if (value < minValue || value > maxValue) {
+                System.out.println("Opção inválida, escolha de " + min + " a " + max + ".");
+                return 0;
+            }
+            return value;
+        } catch (NumberFormatException e) {
+            System.out.println("Opção inválida, escolha de " + min + " a " + max + ".");
+            return 0;
+        }
+    }
+
     public static String validateName(String firstOrLastName) {
         String name;
         System.out.println("Digite o " + firstOrLastName + " do animal: ");
@@ -21,7 +43,7 @@ public class UserInputValidation {
             }
             try {
                 if (!trimName.matches("[\\p{L}'-]+")) {
-                    throw new InvalidInputException("Não são permitidos caracteres especiais ou números. Por favor digite um "+ firstOrLastName +" válido: ");
+                    throw new InvalidInputException("Não são permitidos caracteres especiais ou números. Por favor digite um " + firstOrLastName + " válido: ");
                 }
                 return name;
             } catch (InvalidInputException e) {

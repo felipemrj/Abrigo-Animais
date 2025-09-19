@@ -1,5 +1,7 @@
 package main.service;
 
+import main.util.UserInputValidation;
+
 import java.util.Scanner;
 
 public class MainMenu {
@@ -16,28 +18,8 @@ public class MainMenu {
                 6. Sair
                 
                 """);
-            option = validateOption();
+            option = UserInputValidation.validateOption(1, 6);
         }
         return option;
-    }
-
-    public int validateOption() {
-        System.out.print("Escolha uma opção de 1 até 6: ");
-        String option = read.nextLine();
-        if (option.isEmpty()) {
-            System.out.println("Entrada em branco, por favor escolha uma opção.");
-            return 0;
-        }
-        try {
-            int value = Integer.parseInt(option);
-            if (value < 1 || value > 6) {
-                System.out.println("Opção inválida, escolha de 1 até 6.");
-                return 0;
-            }
-            return value;
-        } catch (NumberFormatException e) {
-            System.out.println("Opção inválida, escolha de 1 até 6.");
-            return 0;
-        }
     }
 }
