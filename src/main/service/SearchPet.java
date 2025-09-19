@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.Normalizer;
 import java.util.ArrayList;
 
 public class SearchPet {
@@ -153,7 +154,7 @@ public class SearchPet {
                 while ((line = br.readLine()) != null) {
                     counter++;
                     if (counter == searchFilter) {
-                        if (line.toLowerCase().contains(searchValue.toLowerCase())) {
+                        if (removeAccents(line.toLowerCase()).contains(removeAccents(searchValue.toLowerCase()))) {
                             filesMeetingCriteria.add(file);
                         }
                         break;
@@ -178,7 +179,7 @@ public class SearchPet {
                 while ((line = br.readLine()) != null) {
                     counter++;
                     if (counter == searchFilter2) {
-                        if (line.toLowerCase().contains(searchValue2.toLowerCase())) {
+                        if (removeAccents(line.toLowerCase()).contains(removeAccents(searchValue2.toLowerCase()))) {
                             detailedSearch.add(file);
                         }
                         break;
@@ -222,5 +223,10 @@ public class SearchPet {
         for (String formattedString : formattedStrings) {
             System.out.println(formattedString);
         }
+    }
+
+    public static String removeAccents(String s) {
+        return Normalizer.normalize(s, Normalizer.Form.NFD)
+                .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
     }
 }

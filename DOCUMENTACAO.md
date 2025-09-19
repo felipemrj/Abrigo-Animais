@@ -83,14 +83,6 @@ A meta dessa etapa foi implementar o armazenamento das informações do pet cada
 
 Para atender aos requisitos da etapa, foi criada a classe **`SaveDataRepository`**, responsável por salvar os dados do pet em arquivos `.txt`, seguindo todas as regras de negócio exigidas.
 
-#### Atributos
-
-- **`PET_FILE_PATH`**  
-  Constante que define o caminho onde os arquivos de pets cadastrados devem ser salvos:
-  ```
-  main/resources/petsCadastrados
-  ```
-
 #### Principais métodos
 
 - **`createPetFile(Pet pet)`**  
@@ -124,3 +116,56 @@ Para atender aos requisitos da etapa, foi criada a classe **`SaveDataRepository`
   6 - 5kg
   7 - Siames
   ```
+
+## Etapa 5
+
+Nessa etapa, o objetivo foi permitir que o usuário busque por pets já cadastrados, utilizando um ou dois critérios de pesquisa, e exibir os resultados de forma clara e organizada no terminal.
+Para isso, foi criada e aprimorada a classe `SearchPet`, responsável por todo o fluxo de busca, seleção dos critérios e apresentação dos resultados.
+
+### Principais classes e métodos
+
+- **`SearchPet`**
+  - Centraliza toda a lógica de busca dos pets cadastrados, seguindo o padrão de organização adotado nas etapas anteriores.
+
+- **Menu de busca**
+  - O método `searchMenu()` apresenta ao usuário as opções para realizar a busca:
+    - Busca simples (1 critério)
+    - Busca detalhada (2 critérios)
+  - Assim como nas etapas anteriores, as escolhas são validadas para evitar entradas inválidas.
+
+- **Seleção de critérios**
+  - O método `searchFilterMenu()` exibe os critérios disponíveis para pesquisa, permitindo que o usuário escolha entre nome/sobrenome, tipo, sexo, endereço, idade, peso ou raça.
+  - Caso o critério escolhido seja endereço, o método `adressFilterMenu()` permite detalhar a busca entre rua, número da casa ou cidade.
+  - A validação dos valores de busca fica centralizada em `searchValueValidation()`, que utiliza os métodos da classe `UserInputValidation`.
+  - O método `adressValidation()` é responsável por determinar qual valor será utilizado na busca pelo endereço.
+
+#### Busca de pets cadastrados
+
+- **Criação da lista de arquivos**
+  - O método `createPetList()` recupera todos os arquivos `.txt` presentes na pasta de pets cadastrados, filtrando apenas os arquivos válidos.
+
+- **Busca simples**
+  - O método `simplePetSearch()` realiza a busca por um único critério, percorrendo os arquivos e comparando o valor informado pelo usuário com o conteúdo do campo correspondente.
+  - O método faz a busca ignorando maiúsculas e minúsculas (case-insensitive) e permite encontrar trechos do nome usando `.contains()`.
+
+- **Busca detalhada**
+  - O método `detailedPetSearch()` aplica dois critérios de busca em sequência, filtrando primeiro pelo critério principal e depois pelo segundo critério, garantindo resultados ainda mais precisos.
+
+#### Exibição dos resultados
+
+- **Formatação dos resultados**
+  - O método `formatSearchResult()` apresenta os pets encontrados de forma organizada, numerando e separando os campos conforme o padrão definido:
+    ```
+    1. Nome - Tipo - Sexo - Endereço - Idade - Peso - Raça
+    2. ...
+    ```
+  - Para exibir apenas as informações relevantes, é feita uma pequena limpeza nas linhas do arquivo, removendo prefixos desnecessários.
+
+#### Exemplo de resultado exibido
+
+```
+1. Rex - Cachorro - Macho - Rua 1, 123 - Cidade 1 - 2 anos - 5kg - Vira-lata
+2. Florzinha da Silva - Gato - Femea - Rua 2, 456 - Seilandia - 6 anos - 5kg - Siames
+```
+
+Com essa etapa, a aplicação passou a permitir que o usuário encontre os pets cadastrados de forma rápida e intuitiva, escolhendo um ou dois critérios de pesquisa, e visualizando os resultados conforme o padrão definido para o projeto.
