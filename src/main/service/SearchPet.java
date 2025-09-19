@@ -167,6 +167,31 @@ public class SearchPet {
         return filesMeetingCriteria;
     }
 
+    public ArrayList<Integer> simplePetSearchIndexes(int searchFilter, String searchValue) {
+        ArrayList<Integer> indexesMeetingCriteria = new ArrayList<>();
+        ArrayList<File> allFilesList = createPetList();
+
+        for (File file : allFilesList) {
+            try (FileReader fr = new FileReader(file);
+                 BufferedReader br = new BufferedReader(fr)) {
+                String line;
+                int counter = 0;
+                while ((line = br.readLine()) != null) {
+                    counter++;
+                    if (counter == searchFilter) {
+                        if (removeAccents(line.toLowerCase()).contains(removeAccents(searchValue.toLowerCase()))) {
+                            indexesMeetingCriteria.add(allFilesList.indexOf(file));
+                        }
+                        break;
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return indexesMeetingCriteria;
+    }
+
     public ArrayList<File> detailedPetSearch(int searchFilter1, String searchValue1, int searchFilter2, String searchValue2) {
         ArrayList<File> firstSearch = simplePetSearch(searchFilter1, searchValue1);
         ArrayList<File> detailedSearch = new ArrayList<>();
@@ -190,6 +215,32 @@ public class SearchPet {
             }
         }
         return detailedSearch;
+    }
+
+    public ArrayList<Integer> detailedPetSearchIndexes(int searchFilter1, String searchValue1, int searchFilter2, String searchValue2) {
+        ArrayList<File> firstSearch = simplePetSearch(searchFilter1, searchValue1);
+        ArrayList<File> allFilesList = createPetList();
+        ArrayList<Integer> indexesMeetingCriteria = new ArrayList<>();
+
+        for (File file : firstSearch) {
+            try (FileReader fr = new FileReader(file);
+                 BufferedReader br = new BufferedReader(fr)) {
+                String line;
+                int counter = 0;
+                while ((line = br.readLine()) != null) {
+                    counter++;
+                    if (counter == searchFilter2) {
+                        if (removeAccents(line.toLowerCase()).contains(removeAccents(searchValue2.toLowerCase()))) {
+                            indexesMeetingCriteria.add(allFilesList.indexOf(file));
+                        }
+                        break;
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return indexesMeetingCriteria;
     }
 
     public void formatSearchResult(ArrayList<File> filesMeetingCriteria) {
