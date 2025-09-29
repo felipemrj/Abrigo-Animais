@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class SaveDataRepository {
-    private static final String PET_FILE_PATH = "C:\\Users\\felip\\IdeaProjects\\desafioCadastro\\src\\main\\resources\\petsCadastrados";
+    private static final String PET_FILE_PATH = "src/main/resources/petsCadastrados";
 
     public static void createPetFile(Pet pet) {
         String fileName = formatDateTime() + "-" + formatFileName(pet);

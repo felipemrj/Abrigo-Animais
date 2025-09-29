@@ -5,7 +5,6 @@ import main.util.UserInputValidation;
 import java.util.Scanner;
 
 public class MainMenu {
-    Scanner read = new Scanner(System.in);
     public int Menu(){
         int option = 0;
         while (option < 1 || option > 6) {

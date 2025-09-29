@@ -10,7 +10,7 @@ import java.text.Normalizer;
 import java.util.ArrayList;
 
 public class SearchPet {
-    private static final String FORM_FILE_PATH = "C:\\Users\\felip\\IdeaProjects\\desafioCadastro\\src\\main\\resources\\petsCadastrados";
+    private static final String FORM_FILE_PATH = "src/main/resources/petsCadastrados";
 
     public void searchPet() {
         int option = searchMenu();

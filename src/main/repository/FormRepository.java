@@ -3,7 +3,7 @@ package main.repository;
 import java.io.*;
 
 public class FormRepository {
-    private static final String FORM_FILE_PATH = "C:\\Users\\felip\\IdeaProjects\\desafioCadastro\\src\\main\\resources\\";
+    private static final String FORM_FILE_PATH = "src/main/resources";
     private static final String FORM_FILE_NAME = "formulario.txt";
 
     public static void createStandardForm() {
