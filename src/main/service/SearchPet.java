@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class SearchPet {
     private static final String FORM_FILE_PATH = "src/main/resources/petsCadastrados";
@@ -143,6 +144,7 @@ public class SearchPet {
                     filesList.add(file);
                 }
             }
+            filesList.sort(Comparator.comparing(File::getName));
         }
         return filesList;
     }
