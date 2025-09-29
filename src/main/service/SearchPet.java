@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class SearchPet {
     private static final String FORM_FILE_PATH = "src/main/resources/petsCadastrados";
 
-    public void searchPet() {
+    public ArrayList<Integer> searchPet() {
         int option = searchMenu();
 
         if (option == 1) {
@@ -21,6 +21,8 @@ public class SearchPet {
 
             ArrayList<File> simpleSearchResults = simplePetSearch(searchFilter, searchValue);
             formatSearchResult(simpleSearchResults);
+
+            return simplePetSearchIndexes(searchFilter, searchValue);
         }
         if (option == 2) {
             int searchFilter = searchFilterMenu();
@@ -31,7 +33,10 @@ public class SearchPet {
 
             ArrayList<File> detailedSearchResults = detailedPetSearch(searchFilter, searchValue, searchFilter2, searchValue2);
             formatSearchResult(detailedSearchResults);
+
+            return detailedPetSearchIndexes(searchFilter, searchValue, searchFilter2, searchValue2);
         }
+        return null;
     }
 
     public int searchMenu() {
