@@ -2,6 +2,6 @@
 2 - Gato
 3 - Feminino
 4 - Av. Central, 9, Brasília
-5 - 9 anos
-6 - 9,0kg
+5 - 12 anos
+6 - 20kg
 7 - Labrador

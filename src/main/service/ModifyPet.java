@@ -3,7 +3,7 @@ package main.service;
 import main.repository.FormRepository;
 import main.util.UserInputValidation;
 
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 
 public class ModifyPet {
@@ -25,9 +25,10 @@ public class ModifyPet {
         String newInfo = newInfo(selectedInfo);
         System.out.println(newInfo);
 
-        // open selected pet file
+        int lineToReplace = lineToReplace(selectedInfo);
+        System.out.println(lineToReplace);
 
-        // replace old line with new info
+        replaceInfo(petToModify, lineToReplace, newInfo);
     }
 
     public int selectPet(ArrayList<Integer> foundPets) {
@@ -77,6 +78,44 @@ public class ModifyPet {
         return newInfo;
     }
 
+    public int lineToReplace(int selectedInfo) {
+        if (selectedInfo != 1) {
+            return selectedInfo + 2;
+        }
+        return selectedInfo;
+    }
+
+    public File replaceInfo(File selectedPetFile, int lineToReplace, String newInfo) {
+        try {
+            ArrayList<String> lines = new ArrayList<>();
+            try (BufferedReader br = new BufferedReader(new FileReader(selectedPetFile))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    lines.add(line);
+                }
+            }
+
+            if (lineToReplace == 5) {
+                newInfo = formatAge(newInfo);
+            } else if (lineToReplace == 6) {
+                newInfo = newInfo + "kg";
+            }
+
+            lines.set(lineToReplace - 1, lineToReplace + " - " + newInfo);
+
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(selectedPetFile))) {
+                for (String l : lines) {
+                    bw.write(l);
+                    bw.newLine();
+                }
+            }
+            return selectedPetFile;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public String newName() {
         FormRepository.readStringInFile(1);
         String firstName = UserInputValidation.validateName("nome");
@@ -109,4 +148,20 @@ public class ModifyPet {
         FormRepository.readStringInFile(7);
         return UserInputValidation.validateBreed();
     }
+
+    public String formatAge(String petAge) {
+        try {
+            double age = Double.parseDouble(petAge.replace(",", ".").trim());
+            if (age < 1) {
+                int months = (int) Math.round(age * 100);
+                return months + (months == 1 ? " mês" : " meses");
+            } else {
+                int years = (int) age;
+                return years + (years == 1 ? " ano" : " anos");
+            }
+        } catch (NumberFormatException e) {
+            return petAge;
+        }
+    }
+
 }
