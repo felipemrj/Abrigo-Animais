@@ -18,15 +18,12 @@ public class ModifyPet {
         int selectedPetIndex = foundPetIndexes.get(selectedPet - 1);
 
         File petToModify = petFilesList.get(selectedPetIndex);
-        System.out.println(petToModify);
 
         int selectedInfo = selectInfo();
 
         String newInfo = newInfo(selectedInfo);
-        System.out.println(newInfo);
 
         int lineToReplace = lineToReplace(selectedInfo);
-        System.out.println(lineToReplace);
 
         replaceInfo(petToModify, lineToReplace, newInfo);
     }

@@ -4,6 +4,7 @@ import main.service.MainMenu;
 import main.model.Pet;
 import main.repository.FormRepository;
 import main.repository.SaveDataRepository;
+import main.service.ModifyPet;
 import main.service.RegisterPet;
 import main.service.SearchPet;
 
@@ -12,6 +13,7 @@ public class Main {
         FormRepository.createStandardForm();
 
         RegisterPet rp = new RegisterPet();
+        ModifyPet mp = new ModifyPet();
         SearchPet sp = new SearchPet();
 
         MainMenu ui = new MainMenu();
@@ -22,7 +24,7 @@ public class Main {
                 rp.registerPet();
                 break;
             case 2:
-                System.out.println("Under development");
+                mp.modifyPet();
                 break;
             case 3:
                 System.out.println("Under development");

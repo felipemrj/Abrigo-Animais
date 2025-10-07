@@ -169,3 +169,66 @@ Para isso, foi criada e aprimorada a classe `SearchPet`, responsável por todo o
 ```
 
 Com essa etapa, a aplicação passou a permitir que o usuário encontre os pets cadastrados de forma rápida e intuitiva, escolhendo um ou dois critérios de pesquisa, e visualizando os resultados conforme o padrão definido para o projeto.
+
+## Etapa 6
+
+O objetivo desta etapa foi implementar a funcionalidade de alteração dos dados de um pet cadastrado, permitindo ao usuário modificar informações de um animal já registrado.
+
+### Principais mudanças e funcionalidades
+
+#### Classe `ModifyPet`
+
+A classe `main.service.ModifyPet` controla o fluxo de alteração dos dados de um pet. Ela foi desenvolvida para ser chamada após a realização de uma busca por pets, permitindo ao usuário escolher qual animal deseja modificar e quais dados serão alterados. Seus principais métodos são:
+
+- **`modifyPet()`**  
+  Orquestra o fluxo completo de alteração:
+  1. Utiliza a classe `SearchPet` para gerar a lista de arquivos de pets cadastrados e busca pelos índices dos pets que atendem aos critérios definidos pelo usuário.
+  2. Solicita ao usuário que selecione, pelo índice, o pet desejado para alteração.
+  3. Permite que o usuário escolha qual informação modificar (nome/sobrenome, endereço, idade, peso ou raça).
+  4. Solicita a nova informação via métodos de entrada e validação.
+  5. Realiza a atualização do arquivo correspondente, substituindo a linha específica pelo novo valor informado.
+
+- **`selectPet(ArrayList<Integer> foundPets)`**  
+  Recebe a lista de índices dos pets encontrados e solicita ao usuário o número do animal que deseja modificar. A entrada é validada para garantir que o índice selecionado esteja dentro do intervalo permitido.
+
+- **`selectInfo()`**  
+  Exibe um menu para o usuário escolher qual campo deseja alterar (nome e sobrenome, endereço, idade, peso ou raça). 
+
+- **`newInfo(int selectedInfo)`**  
+  Direciona para o método adequado de coleta da nova informação, de acordo com o campo escolhido pelo usuário.
+
+- **`lineToReplace(int selectedInfo)`**  
+  Calcula o número da linha do arquivo que deve ser modificada, de acordo com o campo selecionado (considerando o formato dos arquivos de pet).
+
+- **`replaceInfo(File selectedPetFile, int lineToReplace, String newInfo)`**  
+  Realiza a substituição da informação no arquivo do pet:
+  - Lê todas as linhas do arquivo em memória.
+  - Formata a nova informação conforme necessário (ex: idade em anos/meses, peso com “kg”).
+  - Substitui a linha correspondente pelo novo valor, mantendo o padrão de numeração.
+  - Regrava todas as linhas no arquivo, efetivando a alteração.
+
+- **Métodos auxiliares para entrada e validação:**
+  - **`newName()`**: Solicita e valida o novo nome e sobrenome do pet.
+  - **`newAdress()`**: Solicita e valida os campos do novo endereço.
+  - **`newPetAge()`**: Solicita e valida a nova idade.
+  - **`newPetWeight()`**: Solicita e valida o novo peso.
+  - **`newPetBreed()`**: Solicita e valida a nova raça.
+  - **`formatAge(String petAge)`**: Formata a idade informada para o padrão de anos/meses do sistema.
+
+Todos os métodos de entrada utilizam funções da classe `UserInputValidation` para garantir que os dados estejam corretos e sigam as regras do sistema (ex: nome sem caracteres especiais, idade válida, etc).
+
+#### Busca por índices em `SearchPet`
+
+Foram adicionados métodos em `main.service.SearchPet` que retornam os índices dos pets encontrados em buscas simples e detalhadas:
+- **`simplePetSearchIndexes(int searchFilter, String searchValue)`**  
+  Retorna os índices dos arquivos de pets que atendem ao critério simples de busca.
+- **`detailedPetSearchIndexes(int searchFilter1, String searchValue1, int searchFilter2, String searchValue2)`**  
+  Permite buscar por dois critérios e retorna os índices dos pets que atendem aos critérios.
+
+Esses métodos facilitam a seleção do pet correto para alteração, garantindo que o usuário modifique exatamente o animal desejado, mesmo em situações em que há múltiplos registros semelhantes.
+
+---
+
+### Considerações
+
+Com essas alterações, o sistema passou a permitir que o usuário modifique dados de pets já cadastrados de forma segura e validada, mantendo o padrão de organização dos arquivos e a consistência das informações. O fluxo de busca, seleção e alteração está totalmente integrado, tornando o sistema flexível e robusto para gestão dos cadastros.
