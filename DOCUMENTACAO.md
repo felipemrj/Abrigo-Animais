@@ -232,3 +232,43 @@ Esses métodos facilitam a seleção do pet correto para alteração, garantindo
 ### Considerações
 
 Com essas alterações, o sistema passou a permitir que o usuário modifique dados de pets já cadastrados de forma segura e validada, mantendo o padrão de organização dos arquivos e a consistência das informações. O fluxo de busca, seleção e alteração está totalmente integrado, tornando o sistema flexível e robusto para gestão dos cadastros.
+
+## Etapa 7
+
+O objetivo desta etapa foi implementar a funcionalidade de excluir pets cadastrados, permitindo ao usuário remover o registro de um animal do sistema.
+
+### Principais mudanças e funcionalidades
+
+#### Classe `DeletePet`
+
+A classe `main.service.DeletePet` centraliza o fluxo de exclusão de pets, reutilizando e adaptando a lógica da classe `ModifyPet` para garantir consistência e robustez no processo. Os principais métodos são:
+
+- **`deletePet()`**  
+  Gerencia todo o processo de exclusão:
+  1. Utiliza a classe `SearchPet` para obter a lista de arquivos de pets cadastrados e buscar pelos índices dos pets que atendem aos critérios definidos pelo usuário.
+  2. Solicita ao usuário que selecione, pelo índice, o pet que deseja excluir.
+  3. Identifica o arquivo correspondente ao registro do pet e chama o método de exclusão.
+  4. Realiza a exclusão do arquivo físico do sistema, eliminando definitivamente o cadastro do animal.
+
+- **`selectPet(ArrayList<Integer> foundPets)`**  
+  Recebe a lista de índices dos pets encontrados e solicita ao usuário o número do animal que deseja deletar. A entrada é validada para garantir que o índice selecionado esteja dentro do intervalo permitido.
+
+- **`deleteFile(File selectedPetFile)`**  
+  Responsável por excluir o arquivo correspondente ao pet selecionado:
+  - Utiliza o método `delete()` da classe `File` para remover o arquivo do sistema.
+  - Exibe mensagem indicando sucesso ou falha na operação, proporcionando feedback ao usuário.
+
+#### Busca por índices em `SearchPet`
+
+Assim como nas etapas anteriores, a busca por índices dos pets foi essencial para garantir que a exclusão seja realizada sobre o registro correto, mesmo em casos de múltiplos animais com dados semelhantes. Os métodos de busca utilizados foram:
+
+- **`simplePetSearchIndexes(int searchFilter, String searchValue)`**
+- **`detailedPetSearchIndexes(int searchFilter1, String searchValue1, int searchFilter2, String searchValue2)`**
+
+Esses métodos asseguram precisão na seleção do animal a ser deletado, tornando o processo seguro e evitando exclusões equivocadas.
+
+---
+
+### Considerações
+
+Com a implementação desta etapa, o sistema passou a oferecer ao usuário a possibilidade de remover pets cadastrados de maneira simples, segura e validada. A lógica utilizada reaproveita o padrão de busca, seleção e manipulação já estabelecido, garantindo organização e confiabilidade no gerenciamento dos registros do abrigo.

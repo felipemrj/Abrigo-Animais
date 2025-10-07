@@ -49,7 +49,7 @@ O projeto se encontra em desenvolvimento e foi dividido nas seguintes etapas:
 - [x] Etapa 4
 - [x] Etapa 5
 - [x] Etapa 6
-- [ ] Etapa 7
+- [x] Etapa 7
 - [ ] Etapa 8
 - [ ] Etapa Extra
 
