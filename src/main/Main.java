@@ -1,12 +1,9 @@
 package main;
 
-import main.service.MainMenu;
+import main.service.*;
 import main.model.Pet;
 import main.repository.FormRepository;
 import main.repository.SaveDataRepository;
-import main.service.ModifyPet;
-import main.service.RegisterPet;
-import main.service.SearchPet;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,7 +11,9 @@ public class Main {
 
         RegisterPet rp = new RegisterPet();
         ModifyPet mp = new ModifyPet();
+        DeletePet dp = new DeletePet();
         SearchPet sp = new SearchPet();
+
 
         MainMenu ui = new MainMenu();
         int selectedOption = ui.Menu();
@@ -27,7 +26,7 @@ public class Main {
                 mp.modifyPet();
                 break;
             case 3:
-                System.out.println("Under development");
+                dp.deletePet();
                 break;
             case 4:
                 System.out.println("Under development");
