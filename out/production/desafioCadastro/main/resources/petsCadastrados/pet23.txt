@@ -1,7 +1,0 @@
-1 - Leonardo Castro
-2 - Cachorro
-3 - Masculino
-4 - Alameda São João, 3, Belo Horizonte
-5 - 8 anos
-6 - 23,0kg
-7 - Vira-lata

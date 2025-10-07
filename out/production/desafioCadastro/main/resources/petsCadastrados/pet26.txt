@@ -1,7 +1,0 @@
-1 - Fernanda Assis
-2 - Gato
-3 - Masculino
-4 - Rua do Catete, 6A, Recife
-5 - 11 anos
-6 - 26,0kg
-7 - Bulldog

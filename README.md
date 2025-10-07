@@ -9,7 +9,6 @@ Neste programa, o dono de abrigo encontrará as seguintes funcionalidades:
 - Cadastrar um novo pet
 - Buscar dados do pet cadastrado
 - Deletar um pet cadastrado
-- Listar todos os pets cadastrados
 - Listar pets por algum critério (idade, nome, raça)
 
 ## Tecnologias e Conceitos Utilizados
@@ -22,26 +21,23 @@ Para alcançar este objetivo vamos utilizar conceitos de:
 - Tratamento de exceções
 - Boas práticas de código e arquitetura de software
 
-## Estrutura Inicial do Projeto
+## Estrutura do Projeto
 
 ```
 src/
 └── main/
-    ├── model/          # Classes de entidades
-    ├── service/        # Regras de negócio
-    ├── repository/     # Persistência de dados
-    ├── cli/            # Interface de linha de comando
-    ├── exception/      # Exceções customizadas
-    ├── util/           # Utilitários
-    ├── Main.java       # Ponto de entrada da aplicação
-    └── main.resources/
-        ├── formulario.txt       # Arquivo com perguntas do cadastro
-        └── main.resources.petsCadastrados/     # Pasta para armazenar os pets cadastrados
+    ├── exception/          # Exceções customizadas
+    ├── model/              # Classes de entidades
+    ├── repository/         # Persistência de dados
+    ├── resources/          # Arquivos e pastas de dados
+    ├── service/            # Regras de negócio e menu principal
+    ├── util/               # Utilitários
+    └── Main.java           # Ponto de entrada da aplicação
 ```
 
 ## Status do Projeto
 
-O projeto se encontra em desenvolvimento e foi dividido nas seguintes etapas:
+O projeto foi dividido nas seguintes etapas:
 
 - [x] Etapa 1
 - [x] Etapa 2
@@ -51,7 +47,7 @@ O projeto se encontra em desenvolvimento e foi dividido nas seguintes etapas:
 - [x] Etapa 6
 - [x] Etapa 7
 - [x] Etapa 8
-- [ ] Etapa Extra
+- [ ] Refatoração/Polimento
 
 Todas serão comentadas de acordo com a evolução do projeto e podem ser encontradas a seguir:
 

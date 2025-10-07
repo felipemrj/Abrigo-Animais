@@ -1,7 +1,0 @@
-1 - Pedro Henrique
-2 - Cachorro
-3 - Masculino
-4 - Alameda São João, 3, Belo Horizonte
-5 - 3 anos
-6 - 3,0kg
-7 - Vira-lata

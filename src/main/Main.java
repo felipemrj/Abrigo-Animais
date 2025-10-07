@@ -31,12 +31,9 @@ public class Main {
                     dp.deletePet();
                     break;
                 case 4:
-                    System.out.println("Under development");
-                    break;
-                case 5:
                     sp.searchPet();
                     break;
-                case 6:
+                case 5:
                     runProgram = false;
                     System.out.println("Encerrando o sistema.");
                     break;

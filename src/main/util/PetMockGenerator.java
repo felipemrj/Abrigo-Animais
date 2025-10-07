@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class PetMockGenerator {
     public static void main(String[] args) {
-        String folderPath = "C:\\Users\\felip\\IdeaProjects\\desafioCadastro\\src\\main\\resources\\petsCadastrados\\";
+        String folderPath = "src/main/resources/petsCadastrados/";
         String[] nomes = {
                 "Felipe Miguel", "Ana Clara", "Pedro Henrique", "Beatriz Souza", "Lucas Silva",
                 "Mariana Lima", "Gabriel Costa", "Júlia Mendes", "Rafael Oliveira", "Larissa Alves",
@@ -34,14 +34,12 @@ public class PetMockGenerator {
         for (int i = 0; i < 30; i++) {
             String fileName = folderPath + "pet" + (i + 1) + ".txt";
             String nome = nomes[i % nomes.length];
-            // Mistura tipo e sexo a cada 5 pets
             String tipo = tipos[(i / 5) % tipos.length];
             String sexo = sexos[(i / 5 + i % 2) % sexos.length];
             String rua = ruas[i % ruas.length];
             String numero = (1 + i % 20) + (i % 2 == 0 ? "" : "A");
             String cidade = cidades[i % cidades.length];
             String endereco = rua + ", " + numero + ", " + cidade;
-            // Alterna entre meses e anos
             String idade;
             if (i % 6 == 0) {
                 int meses = (i % 12) + 1;
