@@ -54,7 +54,7 @@ public class UserInputValidation {
 
     public static PetType validateType() {
         String type;
-        System.out.println("Digite o tipo de animal (Cachorro ou Gato): ");
+        System.out.println("Digite o tipo de animal: ");
         while (true) {
             try {
                 type = read.nextLine();

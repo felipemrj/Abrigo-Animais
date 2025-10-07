@@ -9,6 +9,7 @@ public class MainMenu {
         int option = 0;
         while (option < 1 || option > 5) {
             System.out.print("""
+                
                 1. Cadastrar um novo pet
                 2. Alterar os dados do pet cadastrado
                 3. Deletar um pet cadastrado
