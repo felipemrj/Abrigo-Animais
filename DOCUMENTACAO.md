@@ -272,3 +272,22 @@ Esses métodos asseguram precisão na seleção do animal a ser deletado, tornan
 ### Considerações
 
 Com a implementação desta etapa, o sistema passou a oferecer ao usuário a possibilidade de remover pets cadastrados de maneira simples, segura e validada. A lógica utilizada reaproveita o padrão de busca, seleção e manipulação já estabelecido, garantindo organização e confiabilidade no gerenciamento dos registros do abrigo.
+
+## Etapa 8
+
+O objetivo desta etapa foi implementar a funcionalidade de encerramento seguro do sistema, permitindo ao usuário finalizar a aplicação pelo menu principal.
+
+### Principais mudanças e funcionalidades
+
+#### Encerramento do programa via menu
+
+- O método de encerramento foi implementado na classe `Main`, por meio de um controle de loop principal utilizando a variável booleana `runProgram`.
+- O menu principal apresenta a opção "Sair" (opção 6). Quando selecionada, `runProgram` é atribuído como `false`, encerrando o loop `do-while` que mantém o sistema em execução.
+- Antes do encerramento, uma mensagem de confirmação é exibida ao usuário: `"Encerrando o sistema."`
+
+#### Fluxo de encerramento
+
+1. O usuário acessa o menu principal e seleciona a opção "Sair".
+2. O sistema altera a variável de controle para interromper o loop principal.
+3. O método `main` chega ao fim, encerrando a aplicação de forma limpa.
+4. Recursos externos, como arquivos e streams, são automaticamente fechados graças ao uso consistente do padrão try-with-resources nas demais funcionalidades do sistema.

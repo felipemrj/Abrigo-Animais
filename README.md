@@ -50,7 +50,7 @@ O projeto se encontra em desenvolvimento e foi dividido nas seguintes etapas:
 - [x] Etapa 5
 - [x] Etapa 6
 - [x] Etapa 7
-- [ ] Etapa 8
+- [x] Etapa 8
 - [ ] Etapa Extra
 
 Todas serão comentadas de acordo com a evolução do projeto e podem ser encontradas a seguir:
