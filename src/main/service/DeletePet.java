@@ -23,6 +23,7 @@ public class DeletePet {
     public int selectPet(ArrayList<Integer> foundPets) {
         int minValue = 1;
         int maxValue = foundPets.size();
+        System.out.println();
         System.out.println("Insira o número do animal que deseja deletar: ");
         return UserInputValidation.validateOption(minValue, maxValue);
     }

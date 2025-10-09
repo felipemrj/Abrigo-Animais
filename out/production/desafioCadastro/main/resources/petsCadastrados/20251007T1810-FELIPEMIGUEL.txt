@@ -1,7 +1,0 @@
-1 - Pedro Freitas
-2 - Cachorro
-3 - Masculino
-4 - rua das flores, 12, sp
-5 - 12 anos
-6 - 50kg
-7 - peixe

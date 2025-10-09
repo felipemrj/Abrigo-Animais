@@ -34,7 +34,7 @@ public class UserInputValidation {
 
     public static String validateName(String firstOrLastName) {
         String name;
-        System.out.println("Digite o " + firstOrLastName + " do animal: ");
+        System.out.print("Digite o " + firstOrLastName + " do animal: ");
         while (true) {
             name = read.nextLine();
             String trimName = name.trim();
@@ -54,7 +54,7 @@ public class UserInputValidation {
 
     public static PetType validateType() {
         String type;
-        System.out.println("Digite o tipo de animal: ");
+        System.out.print("Digite o tipo de animal: ");
         while (true) {
             try {
                 type = read.nextLine();
@@ -71,7 +71,7 @@ public class UserInputValidation {
 
     public static PetGender validateGender() {
         String gender;
-        System.out.println("Digite o sexo do animal (Masculino ou Feminino): ");
+        System.out.print("Digite o sexo do animal (Masculino ou Feminino): ");
         while (true) {
             try {
                 gender = read.nextLine();
@@ -88,7 +88,7 @@ public class UserInputValidation {
 
     public static String validateAdressStreet() {
         String street;
-        System.out.println("Digite o nome da rua/avenida (Exemplo: \"Rua das Flores\", \"Av. D'Ávila\", \"Alameda São João\"): ");
+        System.out.print("Digite o nome da rua/avenida (Exemplo: \"Rua das Flores\", \"Av. D'Ávila\", \"Alameda São João\"): ");
         while (true) {
             try {
                 street = read.nextLine();
@@ -105,7 +105,7 @@ public class UserInputValidation {
 
     public static String validateAdressNumber() {
         String number;
-        System.out.println("Digite o número do endereço (Exemplo: \"12\", \"7A\", \"1024\"): ");
+        System.out.print("Digite o número do endereço (Exemplo: \"12\", \"7A\", \"1024\"): ");
         while (true) {
             number = read.nextLine();
             if (number.isEmpty()) {
@@ -124,7 +124,7 @@ public class UserInputValidation {
 
     public static String validateAdressCity() {
         String city;
-        System.out.println("Digite o nome da cidade (Exemplo: \"São Paulo\", \"Rio de Janeiro\", \"Nova Iguaçu\"): ");
+        System.out.print("Digite o nome da cidade (Exemplo: \"São Paulo\", \"Rio de Janeiro\", \"Nova Iguaçu\"): ");
         while (true) {
             try {
                 city = read.nextLine();
@@ -141,7 +141,7 @@ public class UserInputValidation {
 
     public static String validateAge() {
         String age;
-        System.out.println("Digite a idade do pet (0,01 até 0,12 para meses, números inteiros para anos): ");
+        System.out.print("Digite a idade do pet (0,01 até 0,12 para meses, números inteiros para anos): ");
         while (true) {
             try {
                 age = read.nextLine();
@@ -165,7 +165,7 @@ public class UserInputValidation {
 
     public static String validateWeight() {
         String weight;
-        System.out.println("Digite o peso do pet (apenas números): ");
+        System.out.print("Digite o peso do pet (apenas números): ");
         while (true) {
             try {
                 weight = read.nextLine();
@@ -189,7 +189,7 @@ public class UserInputValidation {
 
     public static String validateBreed() {
         String breed;
-        System.out.println("Digite a raça do pet:");
+        System.out.print("Digite a raça do pet: ");
         while (true) {
             try {
                 breed = read.nextLine();

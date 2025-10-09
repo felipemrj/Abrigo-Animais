@@ -40,11 +40,20 @@ public class SearchPet {
         return null;
     }
 
+    public boolean displayNoResults(ArrayList<File> searchResult) {
+        if (searchResult == null || searchResult.isEmpty()) {
+            System.out.println("Não foram encontrados resultados que atendessem aos critérios de busca.");
+            return true;
+        }
+        return false;
+    }
+
     public int searchMenu() {
         int option = 0;
 
         while (option != 1 && option != 2) {
             System.out.println("""
+                    
                     1. Busca simples (1 Critério)
                     2. Busca detalhada (2 Critérios)
                     """);
@@ -57,8 +66,10 @@ public class SearchPet {
         int searchFilter = 0;
 
         while (searchFilter < 1 || searchFilter > 7) {
+            System.out.println();
             System.out.println("Escolha o critério para a busca: ");
             System.out.println("""
+                    
                     1. Nome ou sobrenome
                     2. Tipo
                     3. Sexo
@@ -76,8 +87,10 @@ public class SearchPet {
         int adressOption = 0;
 
         while (adressOption < 1 || adressOption > 3) {
+            System.out.println();
             System.out.println("Selecione uma opção: ");
             System.out.println("""
+                    
                     1. Rua
                     2. Número da casa
                     3. Cidade""");
@@ -256,6 +269,10 @@ public class SearchPet {
         String formattedSearch = "";
         String lineNumberString;
 
+        if (filesMeetingCriteria == null || filesMeetingCriteria.isEmpty()) {
+            return;
+        }
+
         for (File file : filesMeetingCriteria) {
             int count = 1;
             lineNumberString = Integer.toString(lineNumber);
@@ -277,7 +294,7 @@ public class SearchPet {
             formattedStrings.add(formattedSearch);
             lineNumber++;
         }
-
+        System.out.println();
         for (String formattedString : formattedStrings) {
             System.out.println(formattedString);
         }

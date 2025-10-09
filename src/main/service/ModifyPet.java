@@ -11,7 +11,6 @@ public class ModifyPet {
     public void modifyPet() {
         SearchPet sp = new SearchPet();
         ArrayList<File> petFilesList = sp.createPetList();
-
         ArrayList<Integer> foundPetIndexes = sp.searchPet();
 
         int selectedPet = selectPet(foundPetIndexes);
@@ -28,10 +27,20 @@ public class ModifyPet {
         replaceInfo(petToModify, lineToReplace, newInfo);
     }
 
+    public boolean displayNoResults(ArrayList<Integer> foundPets) {
+        if (foundPets == null ||foundPets.isEmpty()) {
+            System.out.println("Não foram encontrados resultados que atendessem aos critérios de busca.");
+            return true;
+        }
+        return false;
+    }
+
     public int selectPet(ArrayList<Integer> foundPets) {
         int minValue = 1;
         int maxValue = foundPets.size();
+        System.out.println();
         System.out.println("Insira o número do animal que deseja modificar os dados: ");
+        System.out.println();
         return UserInputValidation.validateOption(minValue, maxValue);
     }
 
@@ -39,7 +48,9 @@ public class ModifyPet {
         int option = 0;
         while (option < 1 || option > 5) {
             System.out.println("""
+                    
                     Selecione o dado a ser alterado: 
+                    
                     1 - Nome e sobrenome
                     2 - Endereço
                     3 - Idade

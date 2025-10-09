@@ -18,6 +18,7 @@ public class RegisterPet {
     }
 
     public PetName registerName() {
+        System.out.println();
         FormRepository.readStringInFile(1);
         String firstName = UserInputValidation.validateName("nome");
         String lastName = UserInputValidation.validateName("sobrenome");
@@ -26,37 +27,43 @@ public class RegisterPet {
 
 
     public PetType registerType() {
+        System.out.println();
         FormRepository.readStringInFile(2);
         return UserInputValidation.validateType();
     }
 
     public PetGender registerGender() {
+        System.out.println();
         FormRepository.readStringInFile(3);
         return UserInputValidation.validateGender();
     }
 
     public PetAdress registerAdress() {
+        System.out.println();
         FormRepository.readStringInFile(4);
-        System.out.println("a. Rua: ");
+//        System.out.println("a. Rua: ");
         String street = UserInputValidation.validateAdressStreet();
-        System.out.println("b. Número da casa: ");
+//        System.out.println("b. Número da casa: ");
         String number = UserInputValidation.validateAdressNumber();
-        System.out.println("c. Cidade: ");
+//        System.out.println("c. Cidade: ");
         String city = UserInputValidation.validateAdressCity();
         return new PetAdress(street, number, city);
     }
 
     public String registerPetAge() {
+        System.out.println();
         FormRepository.readStringInFile(5);
         return UserInputValidation.validateAge();
     }
 
     public String registerPetWeight() {
+        System.out.println();
         FormRepository.readStringInFile(6);
         return UserInputValidation.validateWeight();
     }
 
     public String registerPetBreed() {
+        System.out.println();
         FormRepository.readStringInFile(7);
         return UserInputValidation.validateBreed();
     }
