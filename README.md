@@ -47,7 +47,7 @@ O projeto foi dividido nas seguintes etapas:
 - [x] Etapa 6
 - [x] Etapa 7
 - [x] Etapa 8
-- [ ] Refatoração/Polimento
+- [x] Refatoração/Polimento
 
 Todas serão comentadas de acordo com a evolução do projeto e podem ser encontradas a seguir:
 
