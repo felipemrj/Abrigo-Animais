@@ -11,6 +11,19 @@ Neste programa, o dono de abrigo encontrará as seguintes funcionalidades:
 - Deletar um pet cadastrado
 - Listar pets por algum critério (idade, nome, raça)
 
+## Como utilizar
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/felipemrj/Abrigo-Animais.git
+   ```
+
+2. Abra o projeto em sua IDE Java de preferência (ex.: IntelliJ IDEA, Eclipse, VS Code).
+
+3. Execute a classe `Main` para iniciar o sistema.
+
+O programa será executado no console e você poderá utilizar os comandos disponíveis.
+
 ## Tecnologias e Conceitos Utilizados
 
 Para alcançar este objetivo vamos utilizar conceitos de:
