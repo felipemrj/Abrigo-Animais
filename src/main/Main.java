@@ -1,9 +1,7 @@
 package main;
 
 import main.service.*;
-import main.model.Pet;
 import main.repository.FormRepository;
-import main.repository.SaveDataRepository;
 
 public class Main {
     public static void main(String[] args) {
@@ -38,7 +36,6 @@ public class Main {
                     System.out.println("Encerrando o sistema.");
                     break;
                 default:
-                    System.out.println("Invalid");
                     break;
             }
         } while (runProgram);

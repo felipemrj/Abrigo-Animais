@@ -1,7 +1,0 @@
-1 - Beatriz Souza
-2 - Cachorro
-3 - Feminino
-4 - Rua Augusta, 4A, Curitiba
-5 - 4 anos
-6 - 4,0kg
-7 - Poodle

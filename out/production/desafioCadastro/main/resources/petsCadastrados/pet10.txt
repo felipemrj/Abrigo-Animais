@@ -1,7 +1,0 @@
-1 - Larissa Alves
-2 - Gato
-3 - Masculino
-4 - Rua Nova Era, 10A, Manaus
-5 - 10 anos
-6 - 10,0kg
-7 - SRD

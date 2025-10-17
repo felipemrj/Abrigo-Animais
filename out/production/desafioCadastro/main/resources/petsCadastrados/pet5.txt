@@ -1,7 +1,0 @@
-1 - Lucas Silva
-2 - Cachorro
-3 - Masculino
-4 - Av. Atlântica, 5, Porto Alegre
-5 - 5 anos
-6 - 5,0kg
-7 - Siamês

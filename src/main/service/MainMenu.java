@@ -2,8 +2,6 @@ package main.service;
 
 import main.util.UserInputValidation;
 
-import java.util.Scanner;
-
 public class MainMenu {
     public int Menu(){
         int option = 0;

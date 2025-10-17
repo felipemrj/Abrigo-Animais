@@ -41,11 +41,8 @@ public class RegisterPet {
     public PetAdress registerAdress() {
         System.out.println();
         FormRepository.readStringInFile(4);
-//        System.out.println("a. Rua: ");
         String street = UserInputValidation.validateAdressStreet();
-//        System.out.println("b. Número da casa: ");
         String number = UserInputValidation.validateAdressNumber();
-//        System.out.println("c. Cidade: ");
         String city = UserInputValidation.validateAdressCity();
         return new PetAdress(street, number, city);
     }

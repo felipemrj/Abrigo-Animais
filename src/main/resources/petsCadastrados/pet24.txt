@@ -1,7 +1,0 @@
-1 - Sofia Pires
-2 - Cachorro
-3 - Feminino
-4 - Rua Augusta, 4A, Curitiba
-5 - 9 anos
-6 - 24,0kg
-7 - Poodle

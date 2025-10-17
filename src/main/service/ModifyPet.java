@@ -13,6 +13,10 @@ public class ModifyPet {
         ArrayList<File> petFilesList = sp.createPetList();
         ArrayList<Integer> foundPetIndexes = sp.searchPet();
 
+        if (foundPetIndexes == null || foundPetIndexes.isEmpty()) {
+            return;
+        }
+
         int selectedPet = selectPet(foundPetIndexes);
         int selectedPetIndex = foundPetIndexes.get(selectedPet - 1);
 
@@ -27,12 +31,15 @@ public class ModifyPet {
         replaceInfo(petToModify, lineToReplace, newInfo);
     }
 
-    public boolean displayNoResults(ArrayList<Integer> foundPets) {
-        if (foundPets == null ||foundPets.isEmpty()) {
-            System.out.println("Não foram encontrados resultados que atendessem aos critérios de busca.");
+    public boolean verifyIsThereResults(ArrayList<Integer> searchResult) {
+        if (searchResult == null || searchResult.isEmpty()) {
             return true;
         }
         return false;
+    }
+
+    public void noResultsMessage() {
+        System.out.println("Não foram encontrados resultados que atendessem aos critérios de busca.");
     }
 
     public int selectPet(ArrayList<Integer> foundPets) {

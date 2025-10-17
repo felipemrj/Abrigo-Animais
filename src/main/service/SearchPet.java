@@ -21,7 +21,15 @@ public class SearchPet {
             String searchValue = searchValueValidation(searchFilter);
 
             ArrayList<File> simpleSearchResults = simplePetSearch(searchFilter, searchValue);
+
+            boolean resultsVerification = verifyIsThereResults(simpleSearchResults);
+
             formatSearchResult(simpleSearchResults);
+
+            if (resultsVerification) {
+                noResultsMessage();
+                return null;
+            }
 
             return simplePetSearchIndexes(searchFilter, searchValue);
         }
@@ -33,19 +41,30 @@ public class SearchPet {
             String searchValue2 = searchValueValidation(searchFilter2);
 
             ArrayList<File> detailedSearchResults = detailedPetSearch(searchFilter, searchValue, searchFilter2, searchValue2);
+
+            boolean resultsVerification = verifyIsThereResults(detailedSearchResults);
+
             formatSearchResult(detailedSearchResults);
+
+            if (resultsVerification) {
+                noResultsMessage();
+                return null;
+            }
 
             return detailedPetSearchIndexes(searchFilter, searchValue, searchFilter2, searchValue2);
         }
         return null;
     }
 
-    public boolean displayNoResults(ArrayList<File> searchResult) {
+    public boolean verifyIsThereResults(ArrayList<File> searchResult) {
         if (searchResult == null || searchResult.isEmpty()) {
-            System.out.println("Não foram encontrados resultados que atendessem aos critérios de busca.");
             return true;
         }
         return false;
+    }
+
+    public void noResultsMessage() {
+        System.out.println("Não foram encontrados resultados que atendessem aos critérios de busca.");
     }
 
     public int searchMenu() {
@@ -200,7 +219,7 @@ public class SearchPet {
                     counter++;
                     if (counter == searchFilter) {
                         if (removeAccents(line.toLowerCase()).contains(removeAccents(searchValue.toLowerCase()))) {
-                            indexesMeetingCriteria.add(allFilesList.indexOf(file));
+                            indexesMeetingCriteria.add(Integer.valueOf(allFilesList.indexOf(file)));
                         }
                         break;
                     }
@@ -251,7 +270,7 @@ public class SearchPet {
                     counter++;
                     if (counter == searchFilter2) {
                         if (removeAccents(line.toLowerCase()).contains(removeAccents(searchValue2.toLowerCase()))) {
-                            indexesMeetingCriteria.add(allFilesList.indexOf(file));
+                            indexesMeetingCriteria.add(Integer.valueOf(allFilesList.indexOf(file)));
                         }
                         break;
                     }
